@@ -9,6 +9,9 @@ int	main(int ac, char *av[])
 	pile_a = NULL;
 	pile_b = NULL;
 
+	if (pile_a || pile_b)
+		return (0);
+
 	if (ac == 1 || (ac == 2 && av[1][0] == '\0'))
 		return (1);
 	else if (ac == 2)
@@ -25,5 +28,7 @@ int	main(int ac, char *av[])
 	*/
 
 	// free stack in the end
+
+	ft_putstr_fd("All looks good!\n", 1);
 	return (0);
 }

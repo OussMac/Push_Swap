@@ -3,7 +3,6 @@
 
 
 // external libraries
-
 # include <unistd.h> // for writing instructions.
 # include <stdbool.h> // for true or false flags.
 # include <stdlib.h> // for heap usage, mem allocation.
@@ -11,7 +10,6 @@
 
 
 // doubly linked list data structure, type definition.
-
 typedef struct s_box
 {
     int value; // box value
@@ -32,6 +30,10 @@ typedef struct s_box
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *s);
+char	*ft_strdup(const char *s1);
+
+// for printing Errors, and commands.
+void    ft_putstr_fd(char *s, int fd);
 
 // libraries for testing.
 # include <stdio.h>
