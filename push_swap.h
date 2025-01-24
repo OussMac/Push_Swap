@@ -28,7 +28,10 @@ typedef struct s_box
 
 
 
-
+// split utils -- in ft_split_utils.c
+char	**ft_split(char const *s, char c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlen(const char *s);
 
 // libraries for testing.
 # include <stdio.h>
