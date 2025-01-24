@@ -16,7 +16,7 @@ int	main(int ac, char *av[])
 	if (ac == 1 || (ac == 2 && av[1][0] == '\0'))
 	{
 		ft_putstr_fd("Error\n", 2);
-		return (1);
+		return (EXIT_FAILURE);
 	}
 	else if (ac == 2)
 		av = ft_split( av[1], ' '); // artificial allocated arg vector in heap, dont forget
@@ -41,5 +41,5 @@ int	main(int ac, char *av[])
 
 	ft_putstr_fd("All looks good!\n", 1);
 	system("leaks push_swap");
-	return (0);
+	return (EXIT_SUCCESS);
 }
