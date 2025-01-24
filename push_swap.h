@@ -31,11 +31,15 @@ char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s1);
+void	free_argv(char **av, bool argc_2);
 
 // for printing Errors, and commands.
 void    ft_putstr_fd(char *s, int fd);
 
 // libraries for testing.
 # include <stdio.h>
+// functions for testing
+void    print_argv(char **av);
+
 
 #endif // PUSH_SWAP_H

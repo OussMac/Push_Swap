@@ -57,3 +57,18 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
+
+void	free_argv(char **av, bool argc_2)
+{
+	int i;
+
+	i = 0;
+	if (!argc_2)
+		return ;
+	while(av[i])
+	{
+		free(av[i]);
+		i++;
+	}
+	free(av);
+}
