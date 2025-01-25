@@ -14,10 +14,7 @@ int	main(int ac, char *av[])
 		return (0);
 
 	if (ac == 1 || (ac == 2 && av[1][0] == '\0'))
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (EXIT_FAILURE);
-	}
+		no_args_error();
 	else if (ac == 2)
 		av = ft_split( av[1], ' '); // artificial allocated arg vector in heap, dont forget
 	else
@@ -25,6 +22,7 @@ int	main(int ac, char *av[])
 
 	// initialize stack a
 		//also process input for errors within.
+	
 	// if (not sorted)
 	/*
 		implement algorithm
@@ -40,6 +38,5 @@ int	main(int ac, char *av[])
 	// free stack in the end
 
 	ft_putstr_fd("All looks good!\n", 1);
-	system("leaks push_swap");
 	return (EXIT_SUCCESS);
 }

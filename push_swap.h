@@ -35,6 +35,7 @@ void	free_argv(char **av, bool argc_2);
 
 // for printing Errors, and commands.
 void    ft_putstr_fd(char *s, int fd);
+void    no_args_error(void);
 
 // libraries for testing.
 # include <stdio.h>
