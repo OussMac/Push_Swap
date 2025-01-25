@@ -21,7 +21,7 @@ int	main(int ac, char *av[])
 		av = av + 1;   				// just move the ptr of og argv to not include program name.
 
 	// initialize stack a
-	init_pile_a(&pile_a, av);
+	build_pile_a(&pile_a, av);
 		//also process input for errors within.
 	
 	// if (not sorted)
