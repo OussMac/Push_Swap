@@ -21,6 +21,7 @@ int	main(int ac, char *av[])
 		av = av + 1;   				// just move the ptr of og argv to not include program name.
 
 	// initialize stack a
+	init_pile_a(&pile_a, av);
 		//also process input for errors within.
 	
 	// if (not sorted)
@@ -32,9 +33,9 @@ int	main(int ac, char *av[])
 	*/
 
 	print_argv(av); // for testing
+
 	// free fake argument vector once done, if ac was 2
 	free_argv(av, ac == 2);
-
 	// free stack in the end
 
 	ft_putstr_fd("All looks good!\n", 1);

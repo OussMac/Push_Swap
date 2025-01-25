@@ -3,7 +3,7 @@ FLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 HEADER = push_swap.h
 
-SRC = push_swap.c ft_split.c ft_split_utils.c ft_putstr_fd.c print_argv.c errors.c
+SRC = push_swap.c ft_split.c ft_split_utils.c ft_putstr_fd.c print_argv.c print_errors.c init_pile_a.c
 
 OBJ = $(SRC:.c=.o)
 

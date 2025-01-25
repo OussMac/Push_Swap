@@ -33,6 +33,9 @@ size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s1);
 void	free_argv(char **av, bool argc_2);
 
+// stack a initialization.
+void    init_pile_a(t_box **pile_a, char **av);
+
 // for printing Errors, and commands.
 void    ft_putstr_fd(char *s, int fd);
 void    no_args_error(void);
