@@ -7,6 +7,7 @@
 # include <stdbool.h> // for true or false flags.
 # include <stdlib.h> // for heap usage, mem allocation.
 # include <unistd.h> // for write, writing commands.
+# include <limits.h> // library for limits.
 
 
 // doubly linked list data structure, type definition.
@@ -34,11 +35,17 @@ char	*ft_strdup(const char *s1);
 void	free_argv(char **av, bool argc_2);
 
 // stack a initialization.
-void    build_pile_a(t_box **pile_a, char **av);
+void    build_pile_a(t_box **pile_a, char **av, bool argc);
+
+// error handling
+bool    syntax_parser(char *str);
+bool    duplicate_parser(t_box **pile_a, int num);
+void    free_failure(t_box **pile_a, char **av, bool argc_2);
+void    free_pile(t_box **pile_a);
 
 // for printing Errors, and commands.
 void    ft_putstr_fd(char *s, int fd);
-void    no_args_error(void);
+void    print_error(void);
 
 // libraries for testing.
 # include <stdio.h>

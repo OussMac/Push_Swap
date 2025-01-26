@@ -58,6 +58,8 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
+// free artificial (fake) argument vector
+
 void	free_argv(char **av, bool argc_2)
 {
 	int i;
@@ -71,4 +73,10 @@ void	free_argv(char **av, bool argc_2)
 		i++;
 	}
 	free(av);
+}
+
+void    print_error(void) // void when used in a func parameter list. indicates it takes no parameters
+{
+    ft_putstr_fd("Error\n", 2);
+    exit(EXIT_FAILURE);
 }

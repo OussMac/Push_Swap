@@ -31,11 +31,24 @@ static long ft_atol(const char *str)
 
 // pile_box function
 
-void    build_pile_a(t_box **pile_a, char **av)
+void    build_pile_a(t_box **pile_a, char **av, bool argc_2)
 {
-    (void)pile_a;
-    (void)av;
-    ft_atol("1");
+	int	i;
+	long num;
+
+	i = 0;
+	while (av[i])
+	{
+		if(syntax_parser(av[i]))
+			free_failure(pile_a, av, argc_2);
+		num = ft_atol(av[i]);
+		if (!(num >= INT_MIN && num <= INT_MAX))
+			free_failure(pile_a, av, argc_2);
+		if (duplicate_parser(pile_a, (int)num))
+			free_failure(pile_a, av, argc_2);
+		//pile_box(pile_a, (int)num);
+		i++;
+	}
 
 	// while argv[i]
 		//if (syntax_parser)

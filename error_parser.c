@@ -1,0 +1,73 @@
+#include "push_swap.h"
+
+static bool ft_isdigit(int c)
+{
+	if (c <= '9' && c >= '0')
+		return (true);
+	return (false);
+}
+
+static bool ft_issign(int c)
+{
+	if (c == '+' || c == '-')
+		return (true);
+	return (false);
+}
+
+// syntax parser returns true if there is a syntax error for atoi.
+
+bool    syntax_parser(char *str)
+{
+    int i;
+
+    i = 0;
+    if(!ft_issign(str[i]) && !ft_isdigit(str[i]))
+        return (true);
+    if (ft_issign(str[i]) && !ft_isdigit(str[i + 1])) 
+        return (true);
+    i = 1; // we already checked pos at index 0
+    while (str[i])
+    {
+        if (!ft_isdigit(str[i]))
+            return (true);
+        i++;
+    }
+    return (false);
+}
+
+bool    duplicate_parser(t_box **pile_a, int num)
+{
+    t_box   *cur;
+    if (!*pile_a)
+        return (false);
+    cur = *pile_a;
+    while (cur)
+    {
+        if (cur->value == num)
+            return (true);
+        cur = cur->next;
+    }
+    return (false);
+}
+
+void    free_pile(t_box **pile_a)
+{
+    t_box   *cur;
+    t_box   *tmp;
+    if(!*pile_a)
+        return ;
+    cur = *pile_a;
+    while(cur)
+    {
+        tmp = cur->next;
+        free(cur);
+        cur = tmp;
+    }
+}
+
+void free_failure(t_box **pile_a, char **av, bool argc_2)
+{
+    free_pile(pile_a);
+    free_argv(av, argc_2);
+    print_error();
+}

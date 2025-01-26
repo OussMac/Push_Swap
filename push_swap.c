@@ -14,14 +14,14 @@ int	main(int ac, char *av[])
 		return (0);
 
 	if (ac == 1 || (ac == 2 && av[1][0] == '\0'))
-		no_args_error();
+		print_error();
 	else if (ac == 2)
 		av = ft_split( av[1], ' '); // artificial allocated arg vector in heap, dont forget
 	else
 		av = av + 1;   				// just move the ptr of og argv to not include program name.
 
 	// initialize stack a
-	build_pile_a(&pile_a, av);
+	build_pile_a(&pile_a, av, ac == 2);
 		//also process input for errors within.
 	
 	// if (not sorted)
