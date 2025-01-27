@@ -16,3 +16,17 @@ void    ft_putstr_fd(char *s, int fd)
         i++;
     }
 }
+
+bool    ft_isdigit(char c)
+{
+	if (c <= '9' && c >= '0')
+		return (true);
+	return (false);
+}
+
+bool    ft_issign(char c)
+{
+	if (c == '+' || c == '-')
+		return (true);
+	return (false);
+}

@@ -42,15 +42,19 @@ bool    syntax_parser(char *str);
 bool    duplicate_parser(t_box **pile_a, int num);
 void    free_failure(t_box **pile_a, char **av, bool argc_2);
 void    free_pile(t_box **pile_a);
+bool    sorted_pile(t_box *pile_a);
 
 // for printing Errors, and commands.
 void    ft_putstr_fd(char *s, int fd);
 void    print_error(void);
+bool    ft_isdigit(char c);
+bool    ft_issign(char c);
 
 // libraries for testing.
 # include <stdio.h>
 // functions for testing
 void    print_argv(char **av);
+void    stack_printer(t_box *pile);
 
 
 #endif // PUSH_SWAP_H

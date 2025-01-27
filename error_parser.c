@@ -1,21 +1,7 @@
 #include "push_swap.h"
 
-static bool ft_isdigit(int c)
-{
-	if (c <= '9' && c >= '0')
-		return (true);
-	return (false);
-}
-
-static bool ft_issign(int c)
-{
-	if (c == '+' || c == '-')
-		return (true);
-	return (false);
-}
-
 // syntax parser returns true if there is a syntax error for atoi.
-
+// is digit and is alpha in putstr.c
 bool    syntax_parser(char *str)
 {
     int i;
@@ -70,4 +56,18 @@ void free_failure(t_box **pile_a, char **av, bool argc_2)
     free_pile(pile_a);
     free_argv(av, argc_2);
     print_error();
+}
+
+bool    sorted_pile(t_box *pile_a)
+{
+    t_box   *current;
+
+    current = pile_a;
+    while(current->next)
+    {
+        if (current->value > current->next->value)
+            return (false);
+        current = current->next;
+    }
+    return (true);
 }

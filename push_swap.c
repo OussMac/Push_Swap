@@ -19,6 +19,10 @@ int	main(int ac, char *av[])
 		av = av + 1;   				// just move the ptr of og argv to not include program name.
 	build_pile_a(&pile_a, av, ac == 2); // initialize stack a
 		//also process input for errors within.
+	if (sorted_pile(pile_a))
+		printf("already sorted g!\n");
+	else
+		printf("you gotta do ur job g!\n");
 	// if (not sorted)
 	/*
 		implement algorithm
@@ -27,7 +31,9 @@ int	main(int ac, char *av[])
 		// else		big_pile 	--> sort pile
 	*/
 
-	print_argv(av); // for testing
+	//print_argv(av); // for testing
+	// stack_printer(pile_a); // printing stack in visual form
+
 	free_argv(av, ac == 2); // free fake argument vector once done, if ac was 2
 	free_pile(&pile_a); // free stack in the end
 
