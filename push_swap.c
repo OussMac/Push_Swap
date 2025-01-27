@@ -8,22 +8,17 @@ int	main(int ac, char *av[])
 
 	pile_a = NULL; 
 	pile_b = NULL;
-
 	// just using these in a statement for now, to silence the warning.
 	if (pile_a || pile_b)
 		return (0);
-
 	if (ac == 1 || (ac == 2 && av[1][0] == '\0'))
 		print_error();
 	else if (ac == 2)
 		av = ft_split( av[1], ' '); // artificial allocated arg vector in heap, dont forget
 	else
 		av = av + 1;   				// just move the ptr of og argv to not include program name.
-
-	// initialize stack a
-	build_pile_a(&pile_a, av, ac == 2);
+	build_pile_a(&pile_a, av, ac == 2); // initialize stack a
 		//also process input for errors within.
-	
 	// if (not sorted)
 	/*
 		implement algorithm
@@ -33,11 +28,9 @@ int	main(int ac, char *av[])
 	*/
 
 	print_argv(av); // for testing
-
-	// free fake argument vector once done, if ac was 2
-	free_argv(av, ac == 2);
-	// free stack in the end
+	free_argv(av, ac == 2); // free fake argument vector once done, if ac was 2
+	free_pile(&pile_a); // free stack in the end
 
 	ft_putstr_fd("All looks good!\n", 1);
-	return (EXIT_SUCCESS);
+	exit (EXIT_SUCCESS);
 }

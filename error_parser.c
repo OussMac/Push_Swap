@@ -35,7 +35,7 @@ bool    syntax_parser(char *str)
     return (false);
 }
 
-bool    duplicate_parser(t_box **pile_a, int num)
+bool    duplicate_parser(t_box **pile_a, int new_value)
 {
     t_box   *cur;
     if (!*pile_a)
@@ -43,7 +43,7 @@ bool    duplicate_parser(t_box **pile_a, int num)
     cur = *pile_a;
     while (cur)
     {
-        if (cur->value == num)
+        if (cur->value == new_value)
             return (true);
         cur = cur->next;
     }

@@ -25,40 +25,71 @@ static long ft_atol(const char *str)
 	return (pow * s);
 }
 
-// init_metadata function
+// init_metadata function (default values just so they are initialized)
+
+t_box	*init_metadata(int value)
+{
+	t_box *new_box;
+	new_box = (t_box *) malloc (sizeof(t_box));
+	if (!new_box)
+		return (NULL);
+	new_box->value = value;
+	new_box->index = 0;
+	new_box->push_cost = 0;
+	new_box->cheapest = false;
+	new_box->above_median = false;
+	new_box->target = NULL;
+	new_box->next = NULL;
+	new_box->prev = NULL;
+	return (new_box);
+}
 
 // last_box function
+t_box	*find_last_box(t_box **pile_a)
+{
+	t_box	*current;
+
+	current = *pile_a;
+	while (current->next)
+		current = current->next;
+	return (current);
+}
 
 // pile_box function
+void	pile_box(t_box **pile_a, int value)
+{
+	t_box	*new_box;
+	t_box	*last_box;
 
-void    build_pile_a(t_box **pile_a, char **av, bool argc_2)
+	new_box = init_metadata(value);
+	if (!new_box)
+		return ;
+	if (!*pile_a)
+		*pile_a = new_box;
+	else
+	{
+		last_box = find_last_box(pile_a);
+		last_box->next = new_box;
+		new_box->prev = last_box;
+	}
+}
+
+void	build_pile_a(t_box **pile_a, char **av, bool argc_2)
 {
 	int	i;
-	long num;
+	long value;
 
 	i = 0;
 	while (av[i])
 	{
 		if(syntax_parser(av[i]))
 			free_failure(pile_a, av, argc_2);
-		num = ft_atol(av[i]);
-		if (!(num >= INT_MIN && num <= INT_MAX))
+		value = ft_atol(av[i]);
+		if (!(value >= INT_MIN && value <= INT_MAX))
 			free_failure(pile_a, av, argc_2);
-		if (duplicate_parser(pile_a, (int)num))
+		if (duplicate_parser(pile_a, (int)value))
 			free_failure(pile_a, av, argc_2);
-		//pile_box(pile_a, (int)num);
+		pile_box(pile_a, (int)value);
 		i++;
 	}
-
-	// while argv[i]
-		//if (syntax_parser)
-			//free_failure
-		// put num in temp variable using atol
-		// check for overflow if (tmp > INT_MAX || tmp < INT_MIN)
-			//free_failure
-		//if (dublicate_parser)
-			//parse pile and check if number already exits
-			//if so free_failure
-		//pile_box -> append number to list
-	
 }
