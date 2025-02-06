@@ -10,6 +10,7 @@
 # include <limits.h> // library for limits.
 
 
+
 // doubly linked list data structure, type definition.
 typedef struct s_box
 {
@@ -25,6 +26,10 @@ typedef struct s_box
     struct s_box *prev;
 } t_box;
 
+// commands
+void    sa(t_box **pile_a);
+void    sb(t_box **pile_b);
+void    ss(t_box **pile_a, t_box **pile_b);
 
 
 // split utils -- in ft_split_utils.c

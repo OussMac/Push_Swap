@@ -52,6 +52,8 @@ static void print_value(int value)
 void    stack_printer(t_box *pile)
 {
     int i = 1;
+	if (!pile)
+		return ;
     while (pile)
     {
         printf("+=======================+\n");
@@ -63,8 +65,10 @@ void    stack_printer(t_box *pile)
         print_value(pile->value);
 
         printf("|------------------------\n");
-        printf("|prev -> %p\n", pile->prev);
-        printf("|next -> %p\n", pile->next);
+		printf("|⬆ ");
+        printf("prev -> %p\n", pile->prev);
+		printf("|⬇ ");
+        printf("next -> %p\n", pile->next);
 
         printf("+=======================+\n");
         printf("\n\n\n");
