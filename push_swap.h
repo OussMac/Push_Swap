@@ -59,7 +59,7 @@ bool    ft_issign(char c);
 # include <stdio.h>
 // functions for testing
 void    print_argv(char **av);
-void    stack_printer(t_box *pile);
+void    stack_printer(t_box *pile_a, t_box *pile_b);
 
 
 #endif // PUSH_SWAP_H

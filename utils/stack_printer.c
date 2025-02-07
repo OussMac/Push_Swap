@@ -8,14 +8,6 @@ static void draw_box(char *str, int len)
 {
     int i = 0;
     int box_width = 25;
-    // upper line
-    while (i < box_width)
-    {
-        printf("-");
-        i++;
-    }
-    printf("\n");
-
 
     //middle
     i = 0;
@@ -25,16 +17,7 @@ static void draw_box(char *str, int len)
         printf(" ");
         i++;
     }
-    printf("%s|\n", str);
-
-    // lower line
-    i = 0;
-    while (i < box_width)
-    {
-        printf("-");
-        i++;
-    }
-    printf("\n");
+    printf("%s|", str);
 }
 
 static void print_value(int value)
@@ -46,35 +29,233 @@ static void print_value(int value)
     free(str);
 }
 
+void	spaces(void)
+{
+	printf("\t\t\t\t\t");
+}
+
+void	num_spaces(int num)
+{
+	int i = 0;
+	int len = 12;
+	len -= ft_len(num);
+	while(i < len)
+	{
+		printf(" ");
+		i++;
+	}
+	printf("|");
+}
+
+#include <string.h>
+
+void	add_spaces(char *str, bool flag, int is_add)
+{
+	int i = 0;
+
+	int len;
+
+	if (flag)
+		len = 9;
+	else
+	{
+		len = 14;
+		len -= ft_strlen(str);
+	}
+	if (is_add)
+	{
+		len = 12;
+		len -= ft_strlen(str);
+	}
+	while(i < len)
+	{
+		printf(" ");
+		i++;
+	}
+	printf("|");
+}
+
+void	print_arrows(void)
+{
+	int total = 23;
+	int i = 0;
+	while (i < (total / 2))
+	{
+		printf(" ");
+		i++;
+	}
+	printf("| |");
+	i = 0;
+	while (i < (total / 2))
+	{
+		printf(" ");
+		i++;
+	}
+}
+
 
 // first function we call.
 
-void    stack_printer(t_box *pile)
+void    stack_printer(t_box *pile_a, t_box *pile_b)
 {
+	char str[18];
     int i = 1;
-	if (!pile)
-		return ;
-    while (pile)
+    while (pile_a)
     {
-        printf("+=======================+\n");
+        printf("+=======================+");
+		if (pile_b)
+		{
+			spaces();
+			printf("+=======================+");
+		}
+		printf("\n");
 
-        printf("|Box Number %d\n", i);
-        printf("|Address -> %p\n", pile);
-        printf("|------------------------\n");
 
-        print_value(pile->value);
 
-        printf("|------------------------\n");
-		printf("|⬆ ");
-        printf("prev -> %p\n", pile->prev);
-		printf("|⬇ ");
-        printf("next -> %p\n", pile->next);
 
-        printf("+=======================+\n");
-        printf("\n\n\n");
-        pile = pile->next;
+        printf("|Box Number %d", i);
+		num_spaces(i);
+		if (pile_b)
+		{
+			spaces();
+			printf("|Box Number %d", i);
+			num_spaces(i);
+		}
+		printf("\n");
+
+
+
+
+        printf("|Address -> %p", pile_a);
+		sprintf(str ,"%p", pile_a);
+		add_spaces(str, pile_a == NULL, 1);
+		if (pile_b)
+		{
+			spaces();
+			printf("|Address -> %p", pile_b);
+			sprintf(str ,"%p", pile_b);
+			add_spaces(str, pile_b == NULL, 1);
+		}
+		printf("\n");
+
+
+
+
+        printf("|------------------------");
+		if (pile_b)
+		{
+			spaces();
+        	printf("|------------------------");
+		}
+		printf("\n");
+
+
+
+
+
+        print_value(pile_a->value);
+		if (pile_b)
+		{
+			spaces();
+			print_value(pile_b->value);
+		}
+		printf("\n");
+
+
+
+
+
+        printf("|------------------------");
+		if (pile_b)
+		{
+			spaces();
+			printf("|------------------------");
+		}
+		printf("\n");
+
+
+
+
+
+        printf("| prev -> %p", pile_a->prev);
+		sprintf(str ,"%p", pile_a);
+		add_spaces(str, pile_a->prev == NULL, 0);
+		if (pile_b)
+		{
+			spaces();
+			printf("| prev -> %p", pile_b->prev);
+			sprintf(str ,"%p", pile_b);
+			add_spaces(str, pile_b->prev == NULL, 0);
+		}
+		printf("\n");
+
+
+
+
+
+        printf("| next -> %p", pile_a->next);
+		sprintf(str ,"%p", pile_a);
+		add_spaces(str, pile_a->next == NULL, 0);
+		if (pile_b)
+		{
+			spaces();
+			printf("| next -> %p", pile_b->next);
+			sprintf(str ,"%p", pile_b);
+			add_spaces(str, pile_b->next == NULL, 0);
+		}
+		printf("\n");
+
+
+
+
+
+        printf("+=======================+");
+
+		if (pile_b)
+		{
+			spaces();
+			printf("+=======================+");
+		}
+		printf("\n");
+
+		print_arrows();
+		if (pile_b)
+		{
+			spaces();
+			print_arrows();
+		}
+		printf("\n");
+
+		print_arrows();
+		if (pile_b)
+		{
+			spaces();
+			print_arrows();
+		}
+
+        printf("\n");
+        pile_a = pile_a->next;
+		if(pile_b)
+			pile_b = pile_b->next;
         i++;
     }
+
+	printf("-------------------------");
+	spaces();
+	printf("-------------------------");
+	printf("\n");
+
+
+	printf("|        | NULL |       |");
+	spaces();
+	printf("|        | NULL |       |");
+	printf("\n");
+
+
+	printf("-------------------------");
+	spaces();
+	printf("-------------------------");
+	printf("\n");
 }
 
 

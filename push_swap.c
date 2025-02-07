@@ -25,14 +25,19 @@ int	main(int ac, char *av[])
 
 		// if 		pile_height --> two boxes
 		// else if 	pile_height --> three boxes 
-		// else if	pile-height --> fibe boxes
+		// else if	pile-height --> five boxes
 		// else		big_pile 	--> sort pile
 
 	}
 
 
+	build_pile_a(&pile_b, av, ac == 2);
+
 	//print_argv(av); // for testing
-	stack_printer(pile_a); // printing stack in visual form
+	stack_printer(pile_a, pile_b); // printing stack in visual form
+
+	// sa(&pile_a);
+	// stack_printer(pile_a, pile_b);
 	free_argv(av, ac == 2); // free fake argument vector once done, if ac was 2
 	free_pile(&pile_a); // free stack in the end
 
