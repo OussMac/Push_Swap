@@ -62,6 +62,8 @@ bool    sorted_pile(t_box *pile_a)
 {
     t_box   *current;
 
+    if (!pile_a)
+        return (true);
     current = pile_a;
     while(current->next)
     {

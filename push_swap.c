@@ -12,7 +12,7 @@ int	main(int ac, char *av[])
 	if (pile_a || pile_b)
 		return (0);
 	if (ac == 1 || (ac == 2 && av[1][0] == '\0'))
-		print_error();
+		exit (EXIT_FAILURE);
 	else if (ac == 2)
 		av = ft_split( av[1], ' '); // artificial allocated arg vector in heap, dont forget
 	else
@@ -31,10 +31,10 @@ int	main(int ac, char *av[])
 	}
 
 
-	build_pile_a(&pile_b, av, ac == 2);
+	// build_pile_a(&pile_b, av, ac == 2);
 
 	//print_argv(av); // for testing
-	stack_printer(pile_a, pile_b); // printing stack in visual form
+	// stack_printer(pile_a, pile_b); // printing stack in visual form
 
 	// sa(&pile_a);
 	// stack_printer(pile_a, pile_b);

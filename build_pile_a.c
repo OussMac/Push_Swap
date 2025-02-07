@@ -80,6 +80,8 @@ void	build_pile_a(t_box **pile_a, char **av, bool argc_2)
 	long value;
 
 	i = 0;
+	if (!av)
+		free_failure(pile_a, av, argc_2);
 	while (av[i])
 	{
 		if(syntax_parser(av[i]))
