@@ -1,13 +1,13 @@
 #include "push_swap.h"
 
-static bool is_space(char c)
+static  bool is_space(char c)
 {
     if(c == ' ')
         return (true);
     return (false);
 }
 
-int vector_len(char **av)
+static int  vector_len(char **av)
 {
     int i;
 
@@ -58,13 +58,11 @@ char    **append_pocket(char **old_av,char *av_p, int stop)
         i++;
         j++;
     }
-    // reusing this variable
-    pocket_len = vector_len(old_av);
+    pocket_len = vector_len(old_av) + vector_len(av_pocket);  // reusing this variable
     while (i < pocket_len)
     {
-        new_av[i] = av_pocket[stop];
+        new_av[i] = old_av[++stop];
         i++;
-        stop++;
     }
     new_av[i] = NULL;
     print_argv(new_av);

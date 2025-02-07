@@ -85,7 +85,12 @@ char	**build_pile_a(t_box **pile_a, char **av, bool argc_2)
 	while (av[i])
 	{
 		if (pocket_parser(av[i]))
+		{
 			av = append_pocket(av , av[i], i);
+			argc_2 = true;
+		}
+		else
+			argc_2 = false;
 		if(syntax_parser(av[i]))
 			free_failure(pile_a, av, argc_2);
 		value = ft_atol(av[i]);

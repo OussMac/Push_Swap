@@ -33,7 +33,7 @@ int	main(int ac, char *av[])
 
 	// build_pile_a(&pile_b, av, ac == 2);
 
-	// print_argv(av); // for testing
+	print_argv(av); // for testing
 	// stack_printer(pile_a, pile_b); // printing stack in visual form
 
 	// sa(&pile_a);
