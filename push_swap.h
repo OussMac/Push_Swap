@@ -40,7 +40,7 @@ char	*ft_strdup(const char *s1);
 void	free_argv(char **av, bool argc_2);
 
 // stack a initialization.
-void    build_pile_a(t_box **pile_a, char **av, bool argc);
+char	**build_pile_a(t_box **pile_a, char **av, bool argc_2);
 
 // error handling
 bool    syntax_parser(char *str);
@@ -48,6 +48,8 @@ bool    duplicate_parser(t_box **pile_a, int num);
 void    free_failure(t_box **pile_a, char **av, bool argc_2);
 void    free_pile(t_box **pile_a);
 bool    sorted_pile(t_box *pile_a);
+bool    pocket_parser(char *str);
+char    **append_pocket(char **av,char *av_p, int i);
 
 // for printing Errors, and commands.
 void    ft_putstr_fd(char *s, int fd);

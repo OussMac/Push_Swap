@@ -17,7 +17,7 @@ int	main(int ac, char *av[])
 		av = ft_split( av[1], ' '); // artificial allocated arg vector in heap, dont forget
 	else
 		av = av + 1;   				// just move the ptr of og argv to not include program name.
-	build_pile_a(&pile_a, av, ac == 2); // initialize stack a
+	av = build_pile_a(&pile_a, av, ac == 2); // initialize stack a
 		//also process input for errors within.
 	if (!sorted_pile(pile_a))
 	{
@@ -33,7 +33,7 @@ int	main(int ac, char *av[])
 
 	// build_pile_a(&pile_b, av, ac == 2);
 
-	//print_argv(av); // for testing
+	// print_argv(av); // for testing
 	// stack_printer(pile_a, pile_b); // printing stack in visual form
 
 	// sa(&pile_a);
