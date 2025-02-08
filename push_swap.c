@@ -38,7 +38,10 @@ int	main(int ac, char *av[])
 
 	// sa(&pile_a);
 	// stack_printer(pile_a, pile_b);
-	free_argv(av, ac == 2); // free fake argument vector once done, if ac was 2
+	if (ac == 2)
+		free_argv(av, ac == 2); // free fake argument vector once done, if ac was 2
+	else if (ac > 2)
+		free_argv(av, true);
 	free_pile(&pile_a); // free stack in the end
 
 	exit (EXIT_SUCCESS);
