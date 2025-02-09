@@ -8,17 +8,22 @@ int	main(int ac, char *av[])
 
 	pile_a = NULL; 
 	pile_b = NULL;
-	// just using these in a statement for now, to silence the warning.
-	if (pile_a || pile_b)
-		return (0);
-	if (ac == 1 || (ac == 2 && av[1][0] == '\0'))
+
+	if (ac == 1)
 		exit (EXIT_FAILURE);
 	else if (ac == 2)
 		av = ft_split( av[1], ' '); // artificial allocated arg vector in heap, dont forget
 	else
-		av = av + 1;   				// just move the ptr of og argv to not include program name.
+		av = av + 1;  				// just move the ptr of og argv to not include program name.
+	if (ac == 2 && av[0] == NULL)
+	{
+		free_argv(av, ac == 2);
+		print_error();
+	}
 	av = build_pile_a(&pile_a, av, ac == 2); // initialize stack a
 		//also process input for errors within.
+
+
 	if (!sorted_pile(pile_a))
 	{
 		// implement algorithm \\

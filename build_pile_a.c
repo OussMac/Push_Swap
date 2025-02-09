@@ -76,8 +76,9 @@ void	pile_box(t_box **pile_a, int value)
 
 char	**build_pile_a(t_box **pile_a, char **av, bool argc_2)
 {
-	int	i;
-	long value;
+	int		i;
+	long 	value;
+	char	**tmp;
 
 	i = 0;
 	if (!av)
@@ -86,7 +87,12 @@ char	**build_pile_a(t_box **pile_a, char **av, bool argc_2)
 	{
 		if (pocket_parser(av[i]))
 		{
+			tmp = av;
 			av = append_pocket(av , av[i], i);
+			if (av[0] == NULL) // split found only spaces pocket error
+				free_failure(pile_a, av, true);
+			if (argc_2)
+				free_argv(tmp, true);
 			argc_2 = true;
 		}
 		if(syntax_parser(av[i]))

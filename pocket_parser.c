@@ -40,6 +40,8 @@ char    **append_pocket(char **old_av,char *av_p, int stop)
     int     new_len;
     
     av_pocket = ft_split(av_p, ' ');
+    if (av_pocket[0] == NULL)
+        return(av_pocket);
     new_av = (char **) malloc (sizeof(char *) * (vector_len(old_av) + vector_len(av_pocket) + 1));
     if (!new_av)
         return (NULL);
@@ -53,8 +55,8 @@ char    **append_pocket(char **old_av,char *av_p, int stop)
     while (av_pocket[j])
         new_av[i++] = av_pocket[j++];
     new_len = vector_len(old_av) + vector_len(av_pocket);
-    while (i < new_len)
-        new_av[i++] = old_av[++stop];
+    while (old_av[++stop])
+        new_av[i++] = ft_strdup(old_av[stop]);
     new_av[i] = NULL;
     free(av_pocket);
     return (new_av);
