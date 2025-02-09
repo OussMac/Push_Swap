@@ -28,7 +28,21 @@ bool    pocket_parser(char *av)
             return (true);
         i++;
     }
-    return(false);
+    return (false);
+}
+
+bool    pocket_checker(char **av)
+{
+    int i;
+
+    i = 0;
+    while(av[i])
+    {
+        if (pocket_parser(av[i]))
+            return (true);
+        i++;
+    }
+    return (false);
 }
 
 char    **append_pocket(char **old_av,char *av_p, int stop)
@@ -41,8 +55,9 @@ char    **append_pocket(char **old_av,char *av_p, int stop)
     
     av_pocket = ft_split(av_p, ' ');
     if (av_pocket[0] == NULL)
-        return(av_pocket);
-    new_av = (char **) malloc (sizeof(char *) * (vector_len(old_av) + vector_len(av_pocket) + 1));
+        return (av_pocket);
+    new_len = vector_len(old_av) + vector_len(av_pocket);
+    new_av = (char **) malloc (sizeof(char *) * (new_len + 1));
     if (!new_av)
         return (NULL);
     i = 0;
@@ -54,7 +69,6 @@ char    **append_pocket(char **old_av,char *av_p, int stop)
     j = 0;
     while (av_pocket[j])
         new_av[i++] = av_pocket[j++];
-    new_len = vector_len(old_av) + vector_len(av_pocket);
     while (old_av[++stop])
         new_av[i++] = ft_strdup(old_av[stop]);
     new_av[i] = NULL;

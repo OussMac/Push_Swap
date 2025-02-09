@@ -49,6 +49,7 @@ void    free_failure(t_box **pile_a, char **av, bool argc_2);
 void    free_pile(t_box **pile_a);
 bool    sorted_pile(t_box *pile_a);
 bool    pocket_parser(char *str);
+bool    pocket_checker(char **av);
 char    **append_pocket(char **av,char *av_p, int i);
 
 // for printing Errors, and commands.

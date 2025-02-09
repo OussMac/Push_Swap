@@ -9,6 +9,8 @@ int	main(int ac, char *av[])
 	pile_a = NULL; 
 	pile_b = NULL;
 
+	(void)pile_b;
+
 	if (ac == 1)
 		exit (EXIT_FAILURE);
 	else if (ac == 2)
@@ -20,13 +22,14 @@ int	main(int ac, char *av[])
 		free_argv(av, ac == 2);
 		print_error();
 	}
+	bool check = pocket_checker(av);
 	av = build_pile_a(&pile_a, av, ac == 2); // initialize stack a
 		//also process input for errors within.
 
 
 	if (!sorted_pile(pile_a))
 	{
-		// implement algorithm \\
+		// implement algorithm 
 
 		// if 		pile_height --> two boxes
 		// else if 	pile_height --> three boxes 
@@ -45,7 +48,7 @@ int	main(int ac, char *av[])
 	// stack_printer(pile_a, pile_b);
 	if (ac == 2)
 		free_argv(av, ac == 2); // free fake argument vector once done, if ac was 2
-	else if (ac > 2)
+	else if (ac > 2 && check) // dir hna chi check ila makaina ta pocket fnumbers bach matdobble freeich
 		free_argv(av, true);
 	free_pile(&pile_a); // free stack in the end
 
