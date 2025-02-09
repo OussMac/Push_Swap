@@ -47,6 +47,7 @@ bool    pocket_checker(char **av)
 
 char    **append_pocket(char **old_av,char *av_p, int stop)
 {
+    t_vars  vars;
     char    **av_pocket;
     char    **new_av;
     int     i;

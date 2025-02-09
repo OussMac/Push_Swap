@@ -26,6 +26,18 @@ typedef struct s_box
     struct s_box *prev;
 } t_box;
 
+// variables to use and limit declarations
+typedef struct s_vars
+{
+    // append_pocket vars
+    char    **av_pocket;
+    char    **new_av;
+    int     i;
+    int     j;
+    int     new_len;
+    
+} t_vars; 
+
 // commands
 void    sa(t_box **pile_a);
 void    sb(t_box **pile_b);
