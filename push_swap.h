@@ -35,6 +35,10 @@ typedef struct s_vars
     int     i;
     int     j;
     int     new_len;
+
+    // build_pile_a vars
+	long 	value;
+	char	**tmp;
     
 } t_vars; 
 

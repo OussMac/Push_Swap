@@ -76,34 +76,30 @@ void	pile_box(t_box **pile_a, int value)
 
 char	**build_pile_a(t_box **pile_a, char **av, bool argc_2)
 {
-	int		i;
-	long 	value;
-	char	**tmp;
+	t_vars	vars;
 
-	i = 0;
-	if (!av)
-		free_failure(pile_a, av, argc_2);
-	while (av[i])
+	vars.i = 0;
+	while (av[vars.i])
 	{
-		if (pocket_parser(av[i]))
+		if (pocket_parser(av[vars.i]))
 		{
-			tmp = av;
-			av = append_pocket(av , av[i], i);
+			vars.tmp = av;
+			av = append_pocket(av , av[vars.i], vars.i);
 			if (av[0] == NULL) // split found only spaces pocket error
 				free_failure(pile_a, av, true);
 			if (argc_2)
-				free_argv(tmp, true);
+				free_argv(vars.tmp, true);
 			argc_2 = true;
 		}
-		if(syntax_parser(av[i]))
+		if(syntax_parser(av[vars.i]))
 			free_failure(pile_a, av, argc_2);
-		value = ft_atol(av[i]);
-		if (!(value >= INT_MIN && value <= INT_MAX))
+		vars.value = ft_atol(av[vars.i]);
+		if (!(vars.value >= INT_MIN && vars.value <= INT_MAX))
 			free_failure(pile_a, av, argc_2);
-		if (duplicate_parser(pile_a, (int)value))
+		if (duplicate_parser(pile_a, (int)vars.value))
 			free_failure(pile_a, av, argc_2);
-		pile_box(pile_a, (int)value);
-		i++;
+		pile_box(pile_a, (int)vars.value);
+		vars.i++;
 	}
 	return (av);
 }
