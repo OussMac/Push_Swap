@@ -41,11 +41,11 @@ int	main(int ac, char *av[])
 
 	// build_pile_a(&pile_b, av, ac == 2);
 
-	print_argv(av); // for testing
+	// print_argv(av); // for testing
 	// stack_printer(pile_a, pile_b); // printing stack in visual form
 
-	// sa(&pile_a);
-	// stack_printer(pile_a, pile_b);
+	pb(&pile_a, &pile_b);
+	stack_printer(pile_a, pile_b);
 	if (ac == 2)
 		free_argv(av, ac == 2); // free fake argument vector once done, if ac was 2
 	else if (ac > 2 && check) // dir hna chi check ila makaina ta pocket fnumbers bach matdobble freeich

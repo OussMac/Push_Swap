@@ -46,6 +46,8 @@ typedef struct s_vars
 void    sa(t_box **pile_a);
 void    sb(t_box **pile_b);
 void    ss(t_box **pile_a, t_box **pile_b);
+void    pa(t_box **pile_a, t_box **pile_b);
+void    pb(t_box **pile_a, t_box **pile_b);
 
 
 // split utils -- in ft_split_utils.c
