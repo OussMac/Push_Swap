@@ -2,17 +2,8 @@
 
 void    push(t_box **from_pile, t_box **to_pile)
 {
-    t_box   *box_to_push;
-    t_box   *new_head;
-
-    box_to_push = *from_pile;
-    new_head = (*from_pile)->next;
-    *from_pile = new_head;
-    if (to_pile != NULL)
-        box_to_push->next = *to_pile;
-    box_to_push->prev = NULL;
-    (*to_pile)->prev = box_to_push;
-    *to_pile = (*to_pile)->prev;
+    (void)from_pile;
+    (void)to_pile;
 }
 
 void    pa(t_box **pile_a, t_box **pile_b)
