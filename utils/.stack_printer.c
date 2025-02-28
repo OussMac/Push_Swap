@@ -18,6 +18,7 @@ static void draw_box(char *str, int len)
         i++;
     }
     printf("%s|", str);
+	free(str);
 }
 
 static void print_value(int value)
@@ -26,7 +27,6 @@ static void print_value(int value)
     if (!str)
         return;
     draw_box(str, ft_len(value));
-    free(str);
 }
 
 void	spaces(void)
@@ -93,9 +93,7 @@ void	print_arrows(void)
 	}
 }
 
-
 // first function we call.
-
 void    stack_printer(t_box *pile_a, t_box *pile_b)
 {
 	char str[18];
@@ -110,9 +108,6 @@ void    stack_printer(t_box *pile_a, t_box *pile_b)
 		}
 		printf("\n");
 
-
-
-
         printf("|Box Number %d", i);
 		num_spaces(i);
 		if (pile_b)
@@ -122,9 +117,6 @@ void    stack_printer(t_box *pile_a, t_box *pile_b)
 			num_spaces(i);
 		}
 		printf("\n");
-
-
-
 
         printf("|Address -> %p", pile_a);
 		sprintf(str ,"%p", pile_a);
@@ -138,9 +130,6 @@ void    stack_printer(t_box *pile_a, t_box *pile_b)
 		}
 		printf("\n");
 
-
-
-
         printf("|------------------------");
 		if (pile_b)
 		{
@@ -148,10 +137,6 @@ void    stack_printer(t_box *pile_a, t_box *pile_b)
         	printf("|------------------------");
 		}
 		printf("\n");
-
-
-
-
 
         print_value(pile_a->value);
 		if (pile_b)
@@ -161,10 +146,6 @@ void    stack_printer(t_box *pile_a, t_box *pile_b)
 		}
 		printf("\n");
 
-
-
-
-
         printf("|------------------------");
 		if (pile_b)
 		{
@@ -172,10 +153,6 @@ void    stack_printer(t_box *pile_a, t_box *pile_b)
 			printf("|------------------------");
 		}
 		printf("\n");
-
-
-
-
 
         printf("| prev -> %p", pile_a->prev);
 		sprintf(str ,"%p", pile_a);
@@ -189,10 +166,6 @@ void    stack_printer(t_box *pile_a, t_box *pile_b)
 		}
 		printf("\n");
 
-
-
-
-
         printf("| next -> %p", pile_a->next);
 		sprintf(str ,"%p", pile_a);
 		add_spaces(str, pile_a->next == NULL, 0);
@@ -204,10 +177,6 @@ void    stack_printer(t_box *pile_a, t_box *pile_b)
 			add_spaces(str, pile_b->next == NULL, 0);
 		}
 		printf("\n");
-
-
-
-
 
         printf("+=======================+");
 
@@ -245,31 +214,16 @@ void    stack_printer(t_box *pile_a, t_box *pile_b)
 	printf("-------------------------");
 	printf("\n");
 
-
 	printf("|        | NULL |       |");
 	spaces();
 	printf("|        | NULL |       |");
 	printf("\n");
-
 
 	printf("-------------------------");
 	spaces();
 	printf("-------------------------");
 	printf("\n");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // numbers to string, gonna print everything as string.
 

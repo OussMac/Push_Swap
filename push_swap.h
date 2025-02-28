@@ -43,6 +43,8 @@ typedef struct s_vars
 } t_vars; 
 
 // commands
+int     pile_size(t_box *pile);
+void	append_box(t_box **pile, t_box *new_box);
 void    sa(t_box **pile_a);
 void    sb(t_box **pile_b);
 void    ss(t_box **pile_a, t_box **pile_b);
