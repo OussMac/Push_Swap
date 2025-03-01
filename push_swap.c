@@ -41,13 +41,14 @@ int	main(int ac, char *av[])
 
 	// build_pile_a(&pile_b, av, ac == 2);
 
-	// print_argv(av); // for testing
+	print_argv(av); // for testing
 	// stack_printer(pile_a, pile_b); // printing stack in visual form
 
 	// stack_printer(pile_a, pile_b);
 	pb(&pile_a, &pile_b);
+	sa(&pile_a);
 	// pb(&pile_a, &pile_b);
-	// pa(&pile_a, &pile_b);
+	pa(&pile_a, &pile_b);
 	// pa(&pile_a, &pile_b);
 	stack_printer(pile_a, pile_b);
 	if (ac == 2)
