@@ -21,7 +21,7 @@ static int  swap_pile(t_box **pile)
 void    sa(t_box **pile_a)
 {
     if (swap_pile(pile_a))
-            ft_putstr_fd("sa\n", 1);
+        ft_putstr_fd("sa\n", 1);
 }
 void    sb(t_box **pile_b)
 {
@@ -30,6 +30,18 @@ void    sb(t_box **pile_b)
 }
 void    ss(t_box **pile_a, t_box **pile_b)
 {
-    sa(pile_a);
-    sb(pile_b);
+    int ret_a;
+    int ret_b;
+
+    ret_a = swap_pile(pile_a);
+    ret_b = swap_pile(pile_b);
+    if (ret_a && ret_b)
+    {
+        ft_putstr_fd("ss\n", 1);
+        return ;
+    }
+    if (ret_a)
+        ft_putstr_fd("sa\n", 1);
+    else if (ret_b)
+        ft_putstr_fd("sb\n", 1);
 }
