@@ -22,7 +22,7 @@ void    push(t_box **from_pile, t_box **to_pile)
         append_box(to_pile, to_push);
         *from_pile = NULL;
     }
-    if (size > 1)
+    else if (size > 1)
     {
         *from_pile = (*from_pile)->next;
         (*from_pile)->prev = NULL;
