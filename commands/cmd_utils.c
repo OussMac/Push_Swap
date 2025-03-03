@@ -17,7 +17,7 @@ int     pile_size(t_box *pile)
 
 void	append_box(t_box **pile, t_box *new_box)
 {
-	if (!*pile || !new_box)
+	if (!*pile)
 	{
 		*pile = new_box;
         (*pile)->next = NULL;

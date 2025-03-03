@@ -47,10 +47,11 @@ int	main(int ac, char *av[])
 	// stack_printer(pile_a, pile_b);
 	pb(&pile_a, &pile_b);
 	pb(&pile_a, &pile_b);
-	rr(&pile_a, &pile_b);
+	pb(&pile_a, &pile_b);
+	rrr(&pile_a, &pile_b);
 	// ss(&pile_a, &pile_b);
-	// pa(&pile_a, &pile_b);
-	// pa(&pile_a, &pile_b);
+	pa(&pile_a, &pile_b);
+	pa(&pile_a, &pile_b);
 	stack_printer(pile_a, pile_b);
 	if (ac == 2)
 		free_argv(av, ac == 2); // free fake argument vector once done, if ac was 2

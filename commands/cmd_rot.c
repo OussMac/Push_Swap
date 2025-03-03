@@ -1,9 +1,8 @@
 #include "../push_swap.h"
 
 /*
-    find box to rotate.
     if size is 1 or 0 do nothing.
-    if size == 2 swap pile
+    else if size == 2 swap pile
     else if 
         -> find box to rotate.
         -> move head ptr down
