@@ -1,6 +1,22 @@
 #include "../push_swap.h"
 
-static int  swap_pile(t_box **pile)
+/*
+    if pile is empty or only 1 box
+        return
+    find first box
+    find second box
+    update first box to point next to third box (second->next)
+            (-note) if it is null it will point to null closing the pile
+
+    if third box exists (second->next != NULL)
+        update it's prev to point back to first box
+    now update second to be our first 
+        second->prev = NULL;
+        second->next = first;
+    and update the original head to point to second (new first).
+*/
+
+int  swap_pile(t_box **pile)
 {
     t_box   *first;
     t_box   *second;

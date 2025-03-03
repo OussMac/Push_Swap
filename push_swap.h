@@ -42,12 +42,20 @@ typedef struct s_vars
     
 } t_vars; 
 
-// commands
+// command utils
 int     pile_size(t_box *pile);
+int     swap_pile(t_box **pile);
 void	append_box(t_box **pile, t_box *new_box);
+t_box   *find_lastbox(t_box *lst);
+// commands 
 void    sa(t_box **pile_a);
 void    sb(t_box **pile_b);
 void    ss(t_box **pile_a, t_box **pile_b);
+
+void    ra(t_box **pile_a);
+void    rb(t_box **pile_b);
+void    rr(t_box **pile_a, t_box **pile_b);
+
 void    pa(t_box **pile_a, t_box **pile_b);
 void    pb(t_box **pile_a, t_box **pile_b);
 

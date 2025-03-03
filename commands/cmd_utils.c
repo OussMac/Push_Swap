@@ -5,6 +5,8 @@ int     pile_size(t_box *pile)
     int i;
 
     i = 0;
+    if (!pile)
+        return (0);
     while (pile)
     {
         pile = pile->next;
@@ -25,4 +27,18 @@ void	append_box(t_box **pile, t_box *new_box)
     new_box->next = *pile;
     (*pile)->prev = new_box;
     *pile = new_box;
+}
+
+t_box   *find_lastbox(t_box *lst)
+{
+	t_box	*ptr;
+
+	if (!lst)
+		return (NULL);
+	ptr = lst;
+	while (ptr->next != NULL)
+	{
+		ptr = ptr->next;
+	}
+	return (ptr);
 }

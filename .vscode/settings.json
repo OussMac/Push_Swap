@@ -60,6 +60,7 @@
     "bit": "cpp",
     "type_traits": "cpp",
     "cmath": "cpp",
-    "utility": "cpp"
+    "utility": "cpp",
+    "push_swap.h": "c"
   }
 }
