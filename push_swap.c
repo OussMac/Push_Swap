@@ -31,10 +31,12 @@ int	main(int ac, char *av[])
 	{
 		// implement algorithm 
 
-		// if 		pile_height --> two boxes
-		// else if 	pile_height --> three boxes 
-		// else if	pile-height --> five boxes
-		// else		big_pile 	--> sort pile
+		if (pile_size(pile_a) == 2) 		// if 		pile_height --> two boxes
+			two_boxes(&pile_a);
+		else if (pile_size(pile_a) == 3)    // else if 	pile_height --> three boxes 
+			three_boxes(&pile_a);
+		else	
+			sort_pile(&pile_a );   					// else		big_pile 	--> sort pile
 
 	}
 
@@ -44,14 +46,6 @@ int	main(int ac, char *av[])
 	print_argv(av); // for testing
 	// stack_printer(pile_a, pile_b); // printing stack in visual form
 
-	// stack_printer(pile_a, pile_b);
-	pb(&pile_a, &pile_b);
-	pb(&pile_a, &pile_b);
-	pb(&pile_a, &pile_b);
-	rrr(&pile_a, &pile_b);
-	// ss(&pile_a, &pile_b);
-	pa(&pile_a, &pile_b);
-	pa(&pile_a, &pile_b);
 	stack_printer(pile_a, pile_b);
 	if (ac == 2)
 		free_argv(av, ac == 2); // free fake argument vector once done, if ac was 2

@@ -42,6 +42,10 @@ typedef struct s_vars
     
 } t_vars; 
 
+// sorting algorithms
+void    two_boxes(t_box **pile);
+void    three_boxes(t_box **pile);
+
 // command utils
 int     pile_size(t_box *pile);
 int     swap_pile(t_box **pile);
