@@ -35,8 +35,10 @@ int	main(int ac, char *av[])
 			two_boxes(&pile_a);
 		else if (pile_size(pile_a) == 3)    // else if 	pile_height --> three boxes 
 			three_boxes(&pile_a);
-		else	
-			sort_pile(&pile_a );   					// else		big_pile 	--> sort pile
+		else if (pile_size(pile_a) == 4 || pile_size(pile_a) == 5)
+			five_boxes(&pile_a, &pile_b);			// else if 5 or 4 --> five boxes
+		// else	
+		// 	sort_pile(&pile_a );   					// else		big_pile 	--> sort pile
 
 	}
 
