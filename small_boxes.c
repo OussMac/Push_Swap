@@ -4,17 +4,26 @@ static void    push_small(t_box **pile_a, t_box **pile_b)
 {
     int     small_value;
     t_box   *curr;
+    t_box   *small;
 
     curr = *pile_a;
+    small = NULL;
+    small_value = INT_MAX;
     while(curr)
     {
-        if (pile_a->value >= big_value)
+        if (curr->value <= small_value)
         {
-            big_value = pile->value;
-            biggest = pile;
+            small_value = curr->value;
+            small = curr;
         }
         curr = curr->next;
     }
+    if (small->above_median == true)
+        ra(pile_a);
+    else
+        rra(pile_a);
+    if (*pile_a == small)
+        pb(pile_a, pile_b);
 }
 
 static t_box    *find_big(t_box *pile)
@@ -56,14 +65,14 @@ void    three_boxes(t_box **pile)
 
 void    five_boxes(t_box **pile_a, t_box **pile_b)
 {
-    int og_size;
-
-    og_size = pile_size(*pile_a);
     while (pile_size(*pile_a) > 3)
     {
+        update_metadata(pile_a, pile_b);
         push_small(pile_a, pile_b);
     }
-    
+    three_boxes(pile_a);
+    while (*pile_b)
+        pa(pile_a, pile_b);
 }
 
 /*

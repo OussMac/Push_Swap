@@ -45,6 +45,10 @@ typedef struct s_vars
 // sorting algorithms
 void    two_boxes(t_box **pile);
 void    three_boxes(t_box **pile);
+void    five_boxes(t_box **pile_a, t_box **pile_b);
+
+// update node metadata
+void    update_metadata(t_box **pile_a, t_box **pile_b);
 
 // command utils
 int     pile_size(t_box *pile);

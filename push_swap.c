@@ -27,6 +27,7 @@ int	main(int ac, char *av[])
 		//also process input for errors within.
 
 
+	// stack_printer(pile_a, pile_b); // printing stack in visual form
 	if (!sorted_pile(pile_a))
 	{
 		// implement algorithm 
@@ -35,7 +36,7 @@ int	main(int ac, char *av[])
 			two_boxes(&pile_a);
 		else if (pile_size(pile_a) == 3)    // else if 	pile_height --> three boxes 
 			three_boxes(&pile_a);
-		else if (pile_size(pile_a) == 4 || pile_size(pile_a) == 5)
+		else if (pile_size(pile_a) == 5 || pile_size(pile_a) == 4)
 			five_boxes(&pile_a, &pile_b);			// else if 5 or 4 --> five boxes
 		// else	
 		// 	sort_pile(&pile_a );   					// else		big_pile 	--> sort pile
@@ -45,10 +46,9 @@ int	main(int ac, char *av[])
 
 	// build_pile_a(&pile_b, av, ac == 2);
 
-	print_argv(av); // for testing
-	// stack_printer(pile_a, pile_b); // printing stack in visual form
+	// print_argv(av); // for testing
 
-	stack_printer(pile_a, pile_b);
+	// stack_printer(pile_a, pile_b);
 	if (ac == 2)
 		free_argv(av, ac == 2); // free fake argument vector once done, if ac was 2
 	else if (ac > 2 && check) // dir hna chi check ila makaina ta pocket fnumbers bach matdobble freeich
